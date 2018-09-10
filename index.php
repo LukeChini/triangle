@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Triangulo</title>
+    <title>Triangle</title>
 
 <style>
 
@@ -39,13 +39,13 @@
 
 
 <div class="form">
-<form action="triangulo.php" method="post">
+<form action="index.php" method="post">
 <table>
 <tr>
-<td>Insira a Altura (px*10):</td><td><input type="number" name="altura" min='1' ></input></td>
+<td>Enter Height (px*10):</td><td><input type="number" name="height" min='1' ></input></td>
 </tr>
 <tr>
-<td>Insira a Base (px*10):</td><td><input type="number" name="base" min='1' ></input><td>
+<td>Enter Base (px*10):</td><td><input type="number" name="base" min='1' ></input><td>
 <input type="submit" name="enviar" value="Calcular">
 </tr>
 </table>
@@ -54,12 +54,12 @@
 <?php
 
 $base_form = $_POST["base"] *10;
-$altura_form = $_POST['altura']*10;
+$height_form = $_POST['height']*10;
 
-function hipotenusa($base,$altura)
+function hypotenuse($base,$height)
 {
-  $hipotenusa = sqrt(($base*$base)+($altura*$altura));
-  echo $hipotenusa;
+  $hypotenuse = sqrt(($base*$base)+($height*$height));
+  echo $hypotenuse;
 }
 
 
@@ -70,11 +70,11 @@ function hipotenusa($base,$altura)
 <hr />
 
 <?php
-echo 'Altura: '.number_format($altura_form).'px<br />';
+echo 'Height: '.number_format($height_form).'px<br />';
 echo 'Base: '.number_format($base_form).'px<br />';
-echo 'Hipotenusa:'.round((sqrt(($base_form*$base_form)+($altura_form*$altura_form))),2).'px<br />';
-echo 'Angulos:'.' 90° / sup:'.round((rad2deg(atan(($base_form/$altura_form)))),2).'° / inf:'.round(((90)-(rad2deg(atan(($base_form/$altura_form))))),2).'° <br /> ';
-echo 'Area:'.number_format((($base_form*$altura_form)/2)).'px²<br />';
+echo 'Hypotenuse:'.round((sqrt(($base_form*$base_form)+($height_form*$height_form))),2).'px<br />';
+echo 'Angles:'.' 90° / higher:'.round((rad2deg(atan(($base_form/$height_form)))),2).'° / bottom:'.round(((90)-(rad2deg(atan(($base_form/$height_form))))),2).'° <br /> ';
+echo 'Area:'.number_format((($base_form*$height_form)/2)).'px²<br />';
 
 
 
@@ -86,11 +86,11 @@ echo 'Area:'.number_format((($base_form*$altura_form)/2)).'px²<br />';
 
 
 <style media="screen">
-.baseEaltura
+.baseEheight
 {
   width: <?php echo ($base_form) ?>px;
-  height: <?php echo ($altura_form) ?>px;
-  margin-top: <?php echo ($altura_form*0.10) ?>px;
+  height: <?php echo ($height_form) ?>px;
+  margin-top: <?php echo ($height_form*0.10) ?>px;
   margin-left: <?php echo ($base_form*0.10) ?>px;
   border-left-style: solid;
   border-left-color: rgb(82,82,82);
@@ -110,24 +110,24 @@ echo 'Area:'.number_format((($base_form*$altura_form)/2)).'px²<br />';
 .printar_base
 {
   width: <?php echo ($base_form*1.20) ?>px;
-  height: <?php echo ($altura_form*1.20) ?>px;
+  height: <?php echo ($height_form*1.20) ?>px;
   display: inline-block;
 }
 
-.printar_altura
+.printar_height
 {
   width: <?php echo ($base_form*1.20) ?>px;
-  height: <?php echo ($altura_form*1.20) ?>px;
+  height: <?php echo ($height_form*1.20) ?>px;
   display: inline-block;
 }
 
-.printar_hipotenusa
+.printar_hypotenuse
 {
   width: <?php echo ($base_form) ?>px;
-  height: <?php echo ($altura_form) ?>px;
+  height: <?php echo ($height_form) ?>px;
   display: inline-block;
   z-index: 999;
-  transform: skew(<?php echo rad2deg(atan(($base_form/$altura_form))) ?>deg);
+  transform: skew(<?php echo rad2deg(atan(($base_form/$height_form))) ?>deg);
   position: relative;
   margin-left: <?php echo ($base_form/2) ?>px;
   border-left-style: solid;
@@ -144,15 +144,15 @@ echo 'Area:'.number_format((($base_form*$altura_form)/2)).'px²<br />';
 }
 
 
-  /* <?php echo (sqrt(($base_form*$base_form)+($altura_form*$altura_form))) ?> */
+  /* <?php echo (sqrt(($base_form*$base_form)+($height_form*$height_form))) ?> */
 
 
 </style>
 
 
 <div class="printar_base">
-<div class="printar_altura">
-<div class="baseEaltura"><div class="printar_hipotenusa"></div></div>
+<div class="printar_height">
+<div class="baseEheight"><div class="printar_hypotenuse"></div></div>
 </div>
 </div>
 
